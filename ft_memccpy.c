@@ -18,8 +18,6 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	char	*str_dst;
 	char	*str_src;
 
-	if (!dst || !src)
-		return (NULL);
 	counter = 0;
 	str_dst = (char *)dst;
 	str_src = (char *)src;

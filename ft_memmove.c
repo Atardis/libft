@@ -20,9 +20,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*tmp_src;
 	size_t	counter;
 
-	if (!(tmp_dst = (char *)dst) ||
-		!(tmp_src = (char *)src) ||
-		!(tmp = (char *)malloc(sizeof(tmp) * (int)len)))
+	tmp_dst = (char *)dst;
+	tmp_src = (char *)src;
+	if (!(tmp = (char *)malloc(sizeof(tmp) * (int)len)))
 		return (NULL);
 	counter = 0;
 	while (counter < len)

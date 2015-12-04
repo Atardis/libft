@@ -19,8 +19,6 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	char	*str1;
 	char	*str2;
 
-	if (!s1 || !s2)
-		return (NULL);
 	str1 = (char*)s1;
 	str2 = (char*)s2;
 	i = 0;
