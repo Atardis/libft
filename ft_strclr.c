@@ -19,12 +19,9 @@ void	ft_strclr(char *s)
 
 	str = (char *)s;
 	counter = 0;
-	if (str)
+	while (str[counter])
 	{
-		while (str[counter])
-		{
-			str[counter] = '\0';
-			counter++;
-		}
+		str[counter] = '\0';
+		counter++;
 	}
 }
