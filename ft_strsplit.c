@@ -12,64 +12,61 @@
 
 #include "libft.h"
 
-static size_t		ft_len_c_stop(const char *str, int start, char c_stop)
+static int	ft_cnt_parts(const char *s, char c)
 {
-	size_t		counter;
+	int		cnt;
+	int		in_substring;
 
-	if (!str)
-		return (0);
-	counter = 0;
-	while (str[start] && (str[start] != c_stop))
+	in_substring = 0;
+	cnt = 0;
+	while (*s != '\0')
 	{
-		start++;
-		counter++;
+		if (in_substring == 1 && *s == c)
+			in_substring = 0;
+		if (in_substring == 0 && *s != c)
+		{
+			in_substring = 1;
+			cnt++;
+		}
+		s++;
 	}
-	return (counter);
+	return (cnt);
 }
 
-static int			ft_split_count(char *str, char c)
+static int	ft_wlen(const char *s, char c)
 {
-	int		count_word;
-	int		counter;
+	int		len;
 
-	counter = 0;
-	count_word = 0;
-	while (str[counter])
+	len = 0;
+	while (*s != c && *s != '\0')
 	{
-		while (str[counter] && str[counter] != c)
-			counter++;
-		while (str[counter] && str[counter] == c)
-			counter++;
-		count_word++;
+		len++;
+		s++;
 	}
-	return (count_word);
+	return (len);
 }
 
-char				**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	int				count_word;
-	int				i;
-	unsigned int	counter;
-	char			**array_s;
-	char			*str;
+	char	**t;
+	int		nb_word;
+	int		index;
 
-	str = (char *)s;
-	if (!str || *str == 0)
+	index = 0;
+	nb_word = ft_cnt_parts((const char *)s, c);
+	t = (char **)malloc(sizeof(*t) * (ft_cnt_parts((const char *)s, c) + 1));
+	if (!t)
 		return (NULL);
-	counter = 0;
-	count_word = ft_split_count(str, c);
-	array_s = (char**)ft_memalloc(sizeof(char*) * (count_word + 1));
-	counter = 0;
-	i = 0;
-	while (i < count_word)
+	while (nb_word--)
 	{
-		while ((str[counter] == (char)c) && str[counter])
-			counter++;
-		array_s[i] = ft_strsub(str, counter, ft_len_c_stop(str, counter, c));
-		while ((str[counter] != (char)c) && str[counter])
-			counter++;
-		i++;
+		while (*s == c && *s != '\0')
+			s++;
+		t[index] = ft_strsub((const char *)s, 0, ft_wlen((const char *)s, c));
+		if (!t[index])
+			return (NULL);
+		s = s + ft_wlen(s, c);
+		index++;
 	}
-	array_s[i] = 0;
-	return (array_s);
+	t[index] = NULL;
+	return (t);
 }

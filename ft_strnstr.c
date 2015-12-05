@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	i = ft_strlen(s2);
 	while (*s1 && n-- >= i)
 	{
-		if (*s1 == *s2)
+		if (!(ft_strncmp(s1, s2, i)))
 			return ((char *)s1);
 		s1++;
 	}

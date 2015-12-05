@@ -19,12 +19,8 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 
 	str1 = (char *)s1;
 	str2 = (char *)s2;
-	if (str1 && str2)
-	{
-		if (ft_strncmp(str1, str2, n) == 0)
-			return (1);
-		else
-			return (0);
-	}
-	return (0);
+	if (ft_strncmp(str1, str2, n) == 0)
+		return (1);
+	else
+		return (0);
 }

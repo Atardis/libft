@@ -66,6 +66,7 @@ SRC = \
 	ft_strtrim.c \
 	ft_strsplit.c \
 	ft_striteri.c
+	
 SRCO = $(SRC:.c=.o)
 
 all: $(NAME)

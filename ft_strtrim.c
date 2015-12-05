@@ -20,8 +20,6 @@ char	*ft_strtrim(char const *s)
 	size_t	counter;
 
 	str = (char*)s;
-	if (!str)
-		return (NULL);
 	while (*str == ' ' || *str == '\t' || *str == '\n')
 		str++;
 	len = ft_strlen(str) - 1;

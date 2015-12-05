@@ -16,17 +16,17 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char			*str;
 	char			*str_new;
-	unsigned int	counter;
+	unsigned int	i;
 
-	if (!(str_new = ft_strnew(len)) || !s)
+	if (!(str_new = ft_strnew(len)) || (int)len < 0)
 		return (NULL);
 	str = (char *)s;
-	counter = 0;
-	while (counter < len)
+	i = 0;
+	while (i < len)
 	{
-		str_new[counter] = str[start];
+		str_new[i] = str[start];
 		start++;
-		counter++;
+		i++;
 	}
 	return (str_new);
 }
