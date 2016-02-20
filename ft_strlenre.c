@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_strlenre.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gahubaul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/02 15:45:08 by gahubaul          #+#    #+#             */
-/*   Updated: 2015/12/02 15:47:08 by gahubaul         ###   ########.fr       */
+/*   Created: 2016/02/20 15:09:30 by gahubaul          #+#    #+#             */
+/*   Updated: 2016/02/20 15:10:03 by gahubaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include <stdio.h>
 
-int	main()
+#include "libft.h"
+
+size_t				ft_strlenre(const char *str, const char c)
 {
-	printf("%s", "le Bon   -> ");
-	printf("%s", strnstr("salut", "salut", 6));
-	printf("%c", '\n');
-	printf("%s", "le Mien  -> ");
-	printf("%s", ft_strnstr("salut", "salut", 6));
-	printf("%c", '\n');
+	int i;
+
+	i = -1;
+	while (str[++i] != c && str[i] != '\0')
+		;
+	return (i);
 }

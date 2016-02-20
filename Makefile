@@ -41,6 +41,7 @@ SRC = \
 	ft_isdigit.c \
 	ft_isprint.c \
 	ft_strlen.c \
+	ft_strlenre.c \
 	ft_strdup.c \
 	ft_strcpy.c \
 	ft_strncpy.c \
